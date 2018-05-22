@@ -2,13 +2,14 @@ require 'pry'
 
 class Pokemon
 
-  attr_accessor :name, :type, :db
+  attr_accessor :name, :type, :db, :hp
   attr_reader :id
 
-  def initialize(pokemon)
+  def initialize(pokemon, hp=nil)
     @name = pokemon[:name]
     @type = pokemon[:type]
     @id = pokemon[:id]
+    @hp = hp
     @db = db
   end
 
@@ -34,10 +35,10 @@ class Pokemon
 
     pokemon = {}
 
-
     pokemon[:id] = x[0]
     pokemon[:name] = x[1]
     pokemon[:type] =x[2]
+    pokemon[:hp] =x[3]
     # binding.pry
 
     new(pokemon)
